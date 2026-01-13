@@ -25,8 +25,9 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    pip install -r requirements.txt
-                    pytest tests/ -v
+                    python3 -m venv .venv
+                    .venv/bin/pip install -r requirements.txt
+                    .venv/bin/pytest tests/ -v
                 '''
             }
         }
