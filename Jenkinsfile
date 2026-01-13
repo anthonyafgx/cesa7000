@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+    
     environment {
         DOCKER_IMAGE = 'anthonyafgx/cesa7000'
         DOCKER_TAG = "${BUILD_NUMBER}"
