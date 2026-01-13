@@ -23,4 +23,7 @@ RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
+# Allow pip to install packages system-wide    
+ENV PIP_BREAK_SYSTEM_PACKAGES=1
+    
 USER jenkins
