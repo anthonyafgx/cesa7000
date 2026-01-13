@@ -1,8 +1,12 @@
 pipeline {
     agent any
     
-    triggers {
-        pollSCM('H/5 * * * *')
+    parameters {
+        booleanParam(
+            name: 'DO_PUSH',
+            defaultValue: true,
+            description: '¿Hacer push de la imagen a DockerHub?'
+        )
     }
     
     environment {
@@ -66,6 +70,9 @@ pipeline {
         }
         
         stage('Push to DockerHub') {
+            when {
+                expression { params.DO_PUSH }
+            }
             steps {
                 sh '''
                     echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
