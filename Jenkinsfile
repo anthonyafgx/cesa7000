@@ -13,6 +13,8 @@ pipeline {
         DOCKER_USER = "${env.DOCKERHUB_USERNAME}"
         DOCKER_PASS = "${env.DOCKERHUB_TOKEN}"
         SONAR_TOKEN = "${env.SONARQUBE_TOKEN}"
+        // Host workspace path for Docker-in-Docker volume mounts
+        WORKSPACE_HOST = "${env.WORKSPACE_HOST}"
     }
     
     stages {
@@ -33,10 +35,10 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                sh '''
+                sh """
                     docker run --rm \
                         --network cesa7000_cicd-network \
-                        -v "$(pwd):/usr/src" \
+                        -v "${WORKSPACE_HOST}/${JOB_NAME}:/usr/src" \
                         -w /usr/src \
                         sonarsource/sonar-scanner-cli \
                         -Dsonar.projectKey=cesa7000 \
@@ -44,7 +46,7 @@ pipeline {
                         -Dsonar.host.url=${SONARQUBE_URL} \
                         -Dsonar.login=${SONAR_TOKEN} \
                         -Dsonar.python.version=3.11
-                '''
+                """
             }
         }
         

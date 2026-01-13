@@ -143,4 +143,5 @@ ignore/
 
 # CI/CD
 jenkins_home/
+jenkins-workspace/
 .scannerwork/
