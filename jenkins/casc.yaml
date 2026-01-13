@@ -1,0 +1,9 @@
+jenkins:
+  systemMessage: "CESA7000 CI/CD Jenkins Server"
+  numExecutors: 2
+  mode: NORMAL
+  scmCheckoutRetryCount: 3
+
+unclassified:
+  location:
+    url: http://localhost:8080/

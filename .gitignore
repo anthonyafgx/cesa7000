@@ -98,6 +98,7 @@ celerybeat.pid
 # Environments
 .env
 .env.dev
+.env.local
 .venv
 env/
 venv/
@@ -139,3 +140,7 @@ digitalocean/
 
 # Ignore files
 ignore/
+
+# CI/CD
+jenkins_home/
+.scannerwork/
