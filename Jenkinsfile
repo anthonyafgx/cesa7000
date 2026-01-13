@@ -42,7 +42,7 @@ pipeline {
                         -Dsonar.projectKey=cesa7000 \
                         -Dsonar.sources=src \
                         -Dsonar.host.url=${SONARQUBE_URL} \
-                        -Dsonar.token=${SONAR_TOKEN} \
+                        -Dsonar.login=${SONAR_TOKEN} \
                         -Dsonar.python.version=3.11
                 '''
             }
