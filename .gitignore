@@ -98,6 +98,7 @@ celerybeat.pid
 # Environments
 .env
 .env.dev
+.env.local
 .venv
 env/
 venv/
@@ -114,6 +115,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
+.cursor/
 
 # mypy
 .mypy_cache/
@@ -138,3 +140,7 @@ digitalocean/
 
 # Ignore files
 ignore/
+
+# CI/CD
+jenkins_home/
+.scannerwork/
