@@ -29,7 +29,7 @@ pipeline {
                         -v "$(pwd):/app" \
                         -w /app \
                         python:3.11-slim \
-                        sh -c "pip install -r requirements.txt && pytest tests/ -v"
+                        sh -c 'pip install -r requirements.txt && pytest tests/ -v'
                 '''
             }
         }
