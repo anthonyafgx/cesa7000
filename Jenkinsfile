@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm \
-                        --network cicd-network \
+                        --network cesa7000_cicd-network \
                         -v "$(pwd):/usr/src" \
                         -w /usr/src \
                         sonarsource/sonar-scanner-cli \
